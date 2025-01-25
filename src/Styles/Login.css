@@ -1,0 +1,165 @@
+.login-page {
+  background: #fff9f9;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.login-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 32px;
+  margin-left: 128px;
+}
+
+.log-r-top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
+}
+.log-r-top-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+.logo-name {
+  color: #7b1984;
+  font-family: "Urbanist", serif;
+  font-size: 26.188px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+  margin: 0;
+}
+.log-r-top-content {
+  color: #000;
+  font-family: Urbanist;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  text-align: left;
+  max-width: 350px;
+  margin: 0;
+}
+
+.continue-w-gg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 24px;
+  border-radius: 18px;
+  background: #292929;
+  cursor: pointer;
+  border: transparent;
+  width: 100%;
+}
+
+.continue-w-gg-t {
+  color: #fff;
+  font-family: Urbanist;
+  font-size: 21.823px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+  margin: 0;
+}
+.login-left{
+    display: flex;
+    position: relative;
+    align-items:center ;
+    justify-content: center;
+    height: 662px;
+    /* overflow: hidden; */
+
+}
+
+.bg-circle-1{
+    position: absolute;
+    z-index: 0;
+    right: 0;
+}
+.bg-circle-2{
+    display: none;
+}
+.bg-circle-3{
+    display: none;
+}
+
+.login-image {
+  height: 662px;
+  width: auto;
+  z-index: 1;
+}
+
+@media (max-width:1000px) {
+    .login-right{
+        margin-left: 24px;
+    }
+}
+
+@media (max-width:900px) {
+    .login-image{
+        display: none;
+    }
+    .log-r-top{
+        align-items: center;
+    }
+    .log-r-top-content{
+        text-align: center
+    }
+    .login-right{
+        margin: 0;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .login-page{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    .login-left{
+        height: auto;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .continue-w-gg-t{
+        font-size: 16px;
+    }
+    .bg-circle-1{
+        width: 200px;
+        height: 200px;
+        margin-top: 250px;
+        left: 0;
+        right: 0;
+    }
+    .bg-circle-2{
+        display: block;
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        z-index: 0;
+        left: -125px;
+        top: 50px;
+    }
+    .bg-circle-3{
+        display: block;
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        z-index: 0;
+        right: -100px;
+        top: -75px;
+    }
+}
