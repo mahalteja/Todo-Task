@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  gap: 24px;
 }
 
 .dash-head {
@@ -55,7 +56,7 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 140%; 
+  line-height: 140%;
 }
 #list-item {
   margin: 0;
@@ -64,7 +65,7 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 140%; 
+  line-height: 140%;
 }
 
 .profile-sec-wi-logout {
@@ -117,5 +118,92 @@
   line-height: 140%;
   padding: 12px 24px;
   gap: 8px;
+  cursor: pointer;
+}
+
+#dropdown-1 {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 60px;
+  display: inline-block;
+}
+
+#dropdown-1 select {
+  padding: 8px 0px;
+  border: none;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: Mulish;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
+  cursor: pointer;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+.filter-sec {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1300px;
+}
+.filter-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.filter-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.search-bar {
+  display: flex;
+  width: 204px;
+  height: 36px;
+  padding: 6px 12px;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  border-radius: 60px;
+  border: 1px solid rgba(0, 0, 0, 0.42);
+}
+.search-bar input {
+  border: none;
+  color: rgba(0, 0, 0, 0.82);
+  font-family: Mulish;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
+}
+
+.add-task {
+  display: flex;
+  padding: 14px 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 41px;
+  background: #7b1984;
+  color: #fff;
+  text-align: center;
+  font-family: Mulish;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%; 
+  text-transform: uppercase;
+  border: none;
   cursor: pointer;
 }
