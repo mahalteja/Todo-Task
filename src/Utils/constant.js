@@ -8,13 +8,13 @@ export const Task_List = [
   {
     task_name: "Interview with Design Team",
     date: "Today",
-    status: "IN-PROGRESS",
+    status: "In-Progress",
     category: "Work",
   },
   {
     task_name: "Interview with Design Team",
     date: "Today",
-    status: "COMPLETED",
+    status: "Completed",
     category: "Work",
   },
 ];

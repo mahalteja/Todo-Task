@@ -8,7 +8,7 @@ import Completed from './Completed'
 const List = () => {
   return (
     <div className='list-sec'>
-        <table>
+        <table className='table-heading'>
             <tr>
                 <th>Task Name</th>
                 <th>Due On <img src={IMAGES.Sort_Icon} alt="" /> </th>

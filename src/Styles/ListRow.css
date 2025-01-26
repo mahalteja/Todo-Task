@@ -43,3 +43,9 @@ td {
     margin-top: 16px;
     margin-right: 30px;
 }
+
+@media (max-width:700px) {
+  #list-none{
+    display: none;
+  }
+}

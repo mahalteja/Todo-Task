@@ -109,7 +109,7 @@ const Todo = () => {
         </form>
 
           {Task_List.length > 0 ? (
-            Task_List.map((item) => {
+            Task_List.filter((item)=>item.status=="TO-DO").map((item) => {
               return <ListRow {...item} />;
             })
           ) : (

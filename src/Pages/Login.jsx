@@ -21,7 +21,7 @@ const Login = ({callFunction}) => {
           </h3>
         </div>
         <button className="continue-w-gg" onClick={()=>{handleClick()}}>
-          <img src={IMAGES.Google_Icon} alt="" className="google-icon" />
+          <img src={IMAGES.Google_Icon} alt=" Google Icon" className="google-icon" />
           <p className="continue-w-gg-t">Continue with Google</p>
         </button>
       </div>

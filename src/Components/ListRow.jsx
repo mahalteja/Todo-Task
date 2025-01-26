@@ -15,13 +15,13 @@ const ListRow = ({task_name,date,status,category}) => {
               <p id="list-text">{task_name}</p>
             </div>
           </td>
-          <td>
+          <td id="list-none">
             <p id="list-text">{date}</p>
           </td>
-          <td>{status}</td>
-          <td>{category}</td>
+          <td id="list-none">{status}</td>
+          <td id="list-none">{category}</td>
 
-          <img src={IMAGES.More_Icon} alt=" More Icon" className="more-icon" />
+          <img src={IMAGES.More_Icon} alt=" More Icon" id="list-none" className="more-icon" />
         </tr>
       </table>
     </div>

@@ -1,8 +1,8 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
-import axios from 'axios';
-import Google_Login from "./Pages/Dashboard.jsx";
+import axios from "axios";
+import Dashboard from "./Pages/Dashboard.jsx";
 import Login from "./Pages/Login";
 
 function App() {
@@ -41,7 +41,15 @@ function App() {
     setProfile(null);
   };
 
-  return <div className="App">{profile ? <Google_Login profile= {profile}  callFunction={Logout}/> : <Login callFunction={login} />}</div>;
+  return (
+    <div className="App">
+      {profile ? (
+        <Dashboard profile={profile} callFunction={Logout} />
+      ) : (
+        <Login callFunction={login} />
+      )}
+    </div>
+  );
 }
 
 export default App;

@@ -67,3 +67,10 @@
   width: 100%;
   padding-top: 64px;
 }
+
+
+@media (max-width:700px) {
+  .completed-sec{
+    width: 85%;
+  }
+}

@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { googleLogout, useGoogleLogin } from "@react-oauth/google";
-import axios from "axios";
+import React, { useState } from "react";
 import "../Styles/Dashboard.css";
-import { Task_List } from "../Utils/constant";
 import { IMAGES } from "../Utils/Images";
 import List from "../Components/List";
 
