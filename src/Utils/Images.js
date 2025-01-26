@@ -9,7 +9,7 @@ import ViewBoard_Icon from '../Images/Dashboard/view-board.svg'
 import Search_Icon from '../Images/Dashboard/search_icon.svg'
 import Sort_Icon from '../Images/Dashboard/Sort.svg'
 import Plus_Icon from '../Images/Dashboard/plus.svg'
-import {ReactComponent as Chevron_Icon} from '../Images/Dashboard/chevron-down.svg'
+import {ReactComponent as ChevronIcon} from '../Images/Dashboard/chevron-down.svg'
 import Drag_Icon from '../Images/Dashboard/drag_icon.svg'
 import Check_Icon from '../Images/Dashboard/checkmark.svg'
 import More_Icon from '../Images/Dashboard/more_icon.svg'
@@ -28,7 +28,7 @@ export const IMAGES={
     Search_Icon,
     Sort_Icon,
     Plus_Icon,
-    Chevron_Icon,
+    ChevronIcon,
     Drag_Icon,
     Check_Icon,
     More_Icon,

@@ -3,7 +3,6 @@ import { IMAGES } from "../Utils/Images";
 import "../Styles/Todo.css";
 import { Task_List } from "../Utils/constant";
 import ListRow from "./ListRow";
-import TodoForm from "./TodoForm";
 
 const Todo = () => {
   const [isOpen, setOpen] = useState(true);
@@ -43,7 +42,7 @@ const Todo = () => {
         }}
       >
         <p className="todo-text-count">Todo(3)</p>
-        <IMAGES.Chevron_Icon
+        <IMAGES.ChevronIcon
           className={isOpen ? "chevron-todo" : "chevron-todo-close"}
         />
       </div>

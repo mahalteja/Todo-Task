@@ -9,7 +9,7 @@ const InProgress = () => {
     <div className="inpro-sec">
       <div className="inpro-header" onClick={()=>{setOpen(!isOpen)}}>
         <p className="inpro-text-count">In Progress(3)</p>
-        <IMAGES.Chevron_Icon className={isOpen ? "chevron-inpro": "chevron-inpro-close"} />
+        <IMAGES.ChevronIcon className={isOpen ? "chevron-inpro": "chevron-inpro-close"} />
       </div>
       {isOpen &&
       <div className="inpro-sec-bottom">

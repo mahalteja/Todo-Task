@@ -8,7 +8,7 @@ const Completed = () => {
     <div className="completed-sec">
       <div className="completed-header" onClick={()=>{setOpen(!isOpen)}}>
         <p className="completed-text-count">Completed (3)</p>
-        <IMAGES.Chevron_Icon className={isOpen ? "chevron-completed": "chevron-completed-close"} />
+        <IMAGES.ChevronIcon className={isOpen ? "chevron-completed": "chevron-completed-close"} />
       </div>
       {isOpen &&
       <div className="completed-sec-bottom">
