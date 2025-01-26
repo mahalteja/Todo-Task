@@ -28,13 +28,13 @@ const Login = ({callFunction}) => {
       <div className="login-left">
         <img
           src={IMAGES.Login_Image}
-          alt="Login Image"
+          alt="Login"
           className="login-image"
         />
-        <img src={IMAGES.Background_Circles} alt="" className="bg-circle-1" />
+        <img src={IMAGES.Background_Circles} alt="Bg" className="bg-circle-1" />
       </div>
-      <img src={IMAGES.Background_Circles} alt="" className="bg-circle-2" />
-      <img src={IMAGES.Background_Circles} alt="" className="bg-circle-3" />
+      <img src={IMAGES.Background_Circles} alt="Bg" className="bg-circle-2" />
+      <img src={IMAGES.Background_Circles} alt="Bg" className="bg-circle-3" />
     </div>
   );
 };

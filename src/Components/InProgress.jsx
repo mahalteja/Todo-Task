@@ -13,8 +13,8 @@ const InProgress = () => {
       </div>
       {isOpen &&
       <div className="inpro-sec-bottom">
-        { Task_List.filter((item)=>item.status=="In-Progress").length>0 ? (
-          Task_List.filter((item)=>item.status=="In-Progress").map((item)=>{
+        { Task_List.filter((item)=>item.status==="In-Progress").length>0 ? (
+          Task_List.filter((item)=>item.status==="In-Progress").map((item)=>{
             return (<ListRow {...item}/>)
           })
         ):( <p className="inpro-empty">No Tasks in In Progress</p>)}
