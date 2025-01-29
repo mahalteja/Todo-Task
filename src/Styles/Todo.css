@@ -178,6 +178,7 @@
   background: #fff9f9;
   margin-top: 150px;
   margin-left: 150px;
+  z-index: 3;
 }
 #status-popup-close {
   display: none;

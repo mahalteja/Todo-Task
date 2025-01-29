@@ -1,10 +1,13 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import { IMAGES } from "../Utils/Images";
 import "../Styles/InProgress.css";
-import { Task_List } from "../Utils/constant";
 import ListRow from "./ListRow";
-const InProgress = () => {
+const InProgress = ({Task_List,update}) => {
     const [isOpen,setOpen]=useState(true)
+    const filteredArray= Task_List.map((item,index)=>({item,index})).filter(({item})=>item.status==="In-Progress")
+    useEffect(()=>{
+
+    },[Task_List])
   return (
     <div className="inpro-sec">
       <div className="inpro-header" onClick={()=>{setOpen(!isOpen)}}>
@@ -13,10 +16,10 @@ const InProgress = () => {
       </div>
       {isOpen &&
       <div className="inpro-sec-bottom">
-        { Task_List.filter((item)=>item.status==="In-Progress").length>0 ? (
-          Task_List.filter((item)=>item.status==="In-Progress").map((item)=>{
-            return (<ListRow {...item}/>)
-          })
+        { filteredArray.length > 0 ? (
+           filteredArray.map((item,index) => {
+              return <ListRow {...item.item} index={item.index}  update={update} />;
+            })
         ):( <p className="inpro-empty">No Tasks in In Progress</p>)}
       </div>
       }

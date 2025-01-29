@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../Styles/List.css'
 import { IMAGES } from '../Utils/Images'
 import Todo from './Todo'
 import InProgress from './InProgress'
 import Completed from './Completed'
+import { Task_List } from '../Utils/constant'
 
-const List = () => {
+const List = ({callFun,data,update}) => {
+
+  
   return (
     <div className='list-sec'>
         <table className='table-heading'>
@@ -16,9 +19,9 @@ const List = () => {
                 <th>Task Category</th>
             </tr>
         </table>
-        <Todo/>
-        <InProgress/>
-        <Completed/>
+        <Todo callFun={callFun} Task_List={data} update={update}/>
+        <InProgress Task_List={data} update={update}/>
+        <Completed  Task_List={data} update={update}/>
 
     </div>
   )

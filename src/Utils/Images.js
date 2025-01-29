@@ -15,6 +15,10 @@ import Check_Icon from '../Images/Dashboard/checkmark.svg'
 import More_Icon from '../Images/Dashboard/more_icon.svg'
 import Enter_Icon from '../Images/Dashboard/enter.svg'
 import Calender_Icon from '../Images/Dashboard/calender_icon.svg'
+import Close_Icon from '../Images/Dashboard/Close Icon.svg'
+import Check_Completed from '../Images/Dashboard/checkmarkcompleted.png'
+import Task_list from '../Images/Dashboard/tasks-list.svg'
+
 
 export const IMAGES={
     Login_Image,
@@ -34,5 +38,7 @@ export const IMAGES={
     More_Icon,
     Enter_Icon,
     Calender_Icon,
-
+    Close_Icon,
+    Check_Completed,
+    Task_list,
 }

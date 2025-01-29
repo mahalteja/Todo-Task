@@ -1,34 +1,53 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../Styles/Dashboard.css";
 import { IMAGES } from "../Utils/Images";
 import List from "../Components/List";
+import AddTaskPopUp from "../Components/AddTaskPopUp.jsx";
+import { Task_List } from "../Utils/constant.js";
 
 const Dashboard = ({ profile, callFunction }) => {
   function handleClick() {
     callFunction();
   }
+
+
   const [menu, setMenu] = useState(false);
 
-  // For Form
-  // const [formData, setData] = useState({
-  //   name: "",
-  //   email: "",
-  // });
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setData({ ...formData, [name]: value });
-  // };
+  const data = [...Task_List];
+  const [dup_data,setdupdata]=useState([...data])
 
-  // const handleSubmit = (e) => {
-  //   Task_List.push(formData);
-  //   setData({
-  //     name: "",
-  //     email: "",
-  //   });
-  //   e.preventDefault();
-  //   console.log(Task_List);
-  // };
+  const [showpopup,setpopup]=useState(false)
 
+
+
+
+  const add_data = (adddata) => {
+    data.push(adddata)
+    setdupdata([...data])
+
+  };
+
+  const filterStatus = (cat) => {
+    if (cat!="category"){
+    setdupdata(data.filter((item) => item.category === cat))
+    }
+    else{
+      setdupdata(data)
+    }
+  };
+
+  const popupFun=()=>{
+    setpopup(!showpopup)
+  }
+
+  const updateStatus=(index,value)=>{
+    data[index].status=value;
+    setdupdata([...data])
+    console.log(data)
+    
+  }
+  
+  
   return (
     <div className="dashboard">
       <div className="dash-head">
@@ -75,17 +94,21 @@ const Dashboard = ({ profile, callFunction }) => {
         <div className="filter-left">
           <p className="filter-name">Filter by:</p>
           <div id="dropdown-1">
-            <select>
-              <option value="category">Category</option>
-              <option value="work">work</option>
-              <option value="personal">Personal</option>
+            <select 
+              onChange={(e) => {
+                filterStatus(e.target.value);
+              }}
+            >
+              <option value="category">All Category</option>
+              <option value="Work">work</option>
+              <option value="Personal">Personal</option>
             </select>
           </div>
           <div id="dropdown-1">
             <select>
               <option value="due">Due Date</option>
-              <option value="work">work</option>
-              <option value="personal">Personal</option>
+              <option value="Work">work</option>
+              <option value="Personal">Personal</option>
             </select>
           </div>
         </div>
@@ -94,16 +117,13 @@ const Dashboard = ({ profile, callFunction }) => {
             <img src={IMAGES.Search_Icon} alt="Search Icon" />
             <input type="search" placeholder="Search" />
           </div>
-          <button className="add-task">ADD TASK</button>
+          <button className="add-task" onClick={()=>setpopup(true)}>ADD TASK</button>
         </div>
       </div>
-      <List/>
+
+      {showpopup && <AddTaskPopUp callFun={add_data} popup={popupFun}  />}
+      <List callFun={add_data} data={dup_data} update={updateStatus}/>
     </div>
-    //   <form onSubmit={handleSubmit}>
-    //   <input id="input" type="name" name="name" value={formData.name}  onChange={handleChange}/>
-    //   <input type="email" name="email" value={formData.email} onChange={handleChange} />
-    //   <input type="submit"></input>
-    // </form>
   );
 };
 
