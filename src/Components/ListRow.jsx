@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import "../Styles/ListRow.css";
 import { IMAGES } from "../Utils/Images";
 
@@ -48,8 +48,8 @@ const ListRow = ({task_name,date,status,category,index,update,deleteval}) => {
           <img src={IMAGES.More_Icon} onClick={()=>setmorepop(!showmorepop)} alt=" More Icon" id="list-none" className="more-icon" />
           {showmorepop&&
           <div className="more-popup" >
-            <div className="more-popup-row-1" onClick={handleEdit} > <img src={IMAGES.Edit_Icon} alt="" />Edit</div>
-            <div className="more-popup-row-2" onClick={()=>handleDelete(index)} > <img src={IMAGES.Delete_Icon} alt="" /> Delete</div>
+            <div className="more-popup-row-1" onClick={handleEdit} > <img src={IMAGES.Edit_Icon} alt="Edit Icon" />Edit</div>
+            <div className="more-popup-row-2" onClick={()=>handleDelete(index)} > <img src={IMAGES.Delete_Icon} alt="Delete Icon" /> Delete</div>
           </div>}
         </tr>
       </table>

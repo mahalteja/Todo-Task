@@ -4,7 +4,6 @@ import { IMAGES } from '../Utils/Images'
 import Todo from './Todo'
 import InProgress from './InProgress'
 import Completed from './Completed'
-import { Task_List } from '../Utils/constant'
 
 const List = ({callFun,data,update,deleteval,sort}) => {
   const [sortState,setSortState]=useState(false)
