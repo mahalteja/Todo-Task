@@ -26,7 +26,7 @@ const ListRow = ({task_name,date,status,category,index,update,deleteval}) => {
             <div id="li-fi-contain">
               <input type="checkbox" />
               <img src={IMAGES.Drag_Icon} alt="Drag Icon" />
-              {status==="Completed" ? <img src={IMAGES.Check_Completed}/> : <img src={IMAGES.Check_Icon} alt="Check Icon" /> }
+              {status==="Completed" ? <img src={IMAGES.Check_Completed} alt="Check icon"/> : <img src={IMAGES.Check_Icon} alt="Check Icon" /> }
               
               <p id={status==="Completed"?"list-text-completed" :"list-text"} >{task_name}</p>
             </div>
