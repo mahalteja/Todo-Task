@@ -251,8 +251,8 @@ button:focus {
   }
   .add-task {
     position: absolute;
-    right: 16px;
-    top: 84px;
+    right: 0px;
+    top: -100px;
     gap: 16px;
   }
 }

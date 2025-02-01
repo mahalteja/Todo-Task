@@ -6,7 +6,8 @@ import InProgress from './InProgress'
 import Completed from './Completed'
 import { Task_List } from '../Utils/constant'
 
-const List = ({callFun,data,update}) => {
+const List = ({callFun,data,update,deleteval,sort}) => {
+  const [sortState,setSortState]=useState(false)
 
   
   return (
@@ -14,14 +15,14 @@ const List = ({callFun,data,update}) => {
         <table className='table-heading'>
             <tr>
                 <th>Task Name</th>
-                <th>Due On <img src={IMAGES.Sort_Icon} alt="" /> </th>
+                <th onClick={()=>sortState ? (sort("Acend") , setSortState(false)) : (sort("Decend"),setSortState(true))} className='sort-icon'>Due On <img src={IMAGES.Sort_Icon}  alt="" /> </th>
                 <th>Task Status</th>
                 <th>Task Category</th>
             </tr>
         </table>
-        <Todo callFun={callFun} Task_List={data} update={update}/>
-        <InProgress Task_List={data} update={update}/>
-        <Completed  Task_List={data} update={update}/>
+        <Todo callFun={callFun} Task_List={data} update={update} deleteval={deleteval}/>
+        <InProgress Task_List={data} update={update}deleteval={deleteval}/>
+        <Completed  Task_List={data} update={update}  deleteval={deleteval}/>
 
     </div>
   )

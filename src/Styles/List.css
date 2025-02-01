@@ -24,6 +24,9 @@ th {
   text-align: left;
   width: 450px;
 }
+.sort-icon{
+  cursor: pointer;
+}
 
 @media (max-width:700px) {
   .table-heading{

@@ -18,6 +18,8 @@ import Calender_Icon from '../Images/Dashboard/calender_icon.svg'
 import Close_Icon from '../Images/Dashboard/Close Icon.svg'
 import Check_Completed from '../Images/Dashboard/checkmarkcompleted.png'
 import Task_list from '../Images/Dashboard/tasks-list.svg'
+import Edit_Icon from '../Images/Dashboard/edit_icon.svg'
+import Delete_Icon from '../Images/Dashboard/delete_icon.svg'
 
 
 export const IMAGES={
@@ -41,4 +43,7 @@ export const IMAGES={
     Close_Icon,
     Check_Completed,
     Task_list,
+    Edit_Icon,
+    Delete_Icon,
+    
 }

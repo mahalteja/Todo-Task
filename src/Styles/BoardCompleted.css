@@ -1,0 +1,36 @@
+.boardcompleted-sec {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: 350px;
+    min-height: 250px;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid rgba(88, 87, 81, 0.07);
+    background: #f1f1f1;
+    padding: 12px;
+    gap:16px;
+    box-sizing: border-box; 
+  }
+  
+  .completed-tag {
+    display: flex;
+    padding: 4px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 4px;
+    background: #A2D6A0;
+  }
+  .completed-tag-name {
+    color: #000;
+    margin: 0;
+    font-family: Mulish;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+  }
+  

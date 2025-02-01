@@ -28,7 +28,7 @@ function App() {
         )
         .then((res) => {
           setProfile(res.data);
-          console.log(res.data);
+          
         })
         .catch((err) => {
           console.log(err);

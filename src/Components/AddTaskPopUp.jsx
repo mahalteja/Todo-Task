@@ -2,21 +2,39 @@ import React,{useState} from "react";
 import { IMAGES } from "../Utils/Images";
 import '../Styles/AddTaskPopUp.css'
 const AddTaskPopUp = ({callFun,popup}) => {
-   let btn_class="btn-create";
+   
     const [formData,setData]=useState({
       task_name:"",
       date:"",
       desc:"",
       status:"",
-      category:""
+      category:"",
+      file:""
     })
 
-    const handleChange=(e)=>{
-      const {name,value}=e.target
-      setData({...formData,[name]:value})
-      
-    }
+    const [isFormValid,setFormValid]=useState(false)
 
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setData((prevData) => {
+        const updatedData = { ...prevData, [name]: value };
+        const isValid = updatedData.task_name !== "" && updatedData.date !== "" && updatedData.status !== "" && updatedData.category !== "";
+        setFormValid(isValid);
+    
+        return updatedData;
+      });
+    };
+    
+    const [filePreview, setFilePreview] = useState(null);
+    const handleFileChange = (e) => {
+      const file = e.target.files[0];
+      setData({ ...formData, file });
+  
+      if (file) {
+        const previewUrl = URL.createObjectURL(file);  
+        setFilePreview(previewUrl);
+      }
+    };
     const handleSubmit=(e)=>{
       
       callFun(formData)
@@ -25,12 +43,14 @@ const AddTaskPopUp = ({callFun,popup}) => {
         date:"",
         desc:"",
         status:"",
-        category:""
+        category:"",
+        file:""
     })
-   
     popup()
     e.preventDefault();
     }
+
+
     const handleBold=(e)=>{
         e.preventDefault();
         let target =document.getElementById("Desc")
@@ -62,6 +82,8 @@ const AddTaskPopUp = ({callFun,popup}) => {
         }
     }
 
+    
+
   return (
   <div className="create-task-popup-outer">
     <div className="create-task-popup">
@@ -71,6 +93,7 @@ const AddTaskPopUp = ({callFun,popup}) => {
       </div>
       <div className="c-t-pp-middle">
         <form action="" onSubmit={handleSubmit} className="c-t-pp-mid-form">
+          
           <input type="text" placeholder="Task Title" className="task-title-input" name="task_name"
           value={formData.task_name} onChange={handleChange} required/>
           <div className="mid-form-desc">
@@ -88,11 +111,11 @@ const AddTaskPopUp = ({callFun,popup}) => {
             <div className="task-cat-contain">
               <label htmlFor="" id="task-cat-label"> Task Category*</label>
               <div className="task-act-opt-contain">
-                <div id="radio-option">
-                  <input type="radio" id="work" name="category" value="Work" onChange={handleChange} required />
+                <div id={formData.category==="Work" ? "radio-option-active" : "radio-option"} >
+                  <input type="radio" id="work"  name="category" value="Work" onChange={handleChange} required />
                   <label for="work">Work</label>
                 </div>
-                <div id="radio-option">
+                <div id={formData.category==="Personal" ? "radio-option-active" : "radio-option"}>
                 <input type="radio" id="Personal" name="category" value="Personal" onChange={handleChange} required/>
                 <label for="Personal">Personal</label>
                 </div>
@@ -113,13 +136,21 @@ const AddTaskPopUp = ({callFun,popup}) => {
           </div>
           </div>
           <div className="file-contain">
-            <label for="file" id="task-cat-label">Attachment</label>
-            <input type="file" id="file" className="file-input"/>
+            <label  id="task-cat-label">Attachment</label>
+            <label for="file" className="task-cat-label">Drop your files here to Upload</label>
+            <input type="file" id="file" className="file-input" onChange={handleFileChange}/>
+            {filePreview && (
+          <div className="file-preview">
+            <p>Selected file:</p>
+            <img src={filePreview} alt="Preview" className="preview-img"/>
+            <p>{formData.file?.name}</p> 
+          </div>
+        )}
           </div>
           <div className="c-t-pp-bottom">
-        <button className="btn-cancel" onClick={()=>{popup()}}>CANCEL</button>
-        <button className={btn_class} >CREATE</button>
-      </div>
+          <button className="btn-cancel" onClick={()=>{popup()}}>CANCEL</button>
+          <button className={ isFormValid===true ? "btn-create-active":"btn-create"} >CREATE</button>
+          </div>
         </form>
       </div>
  

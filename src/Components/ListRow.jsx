@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../Styles/ListRow.css";
 import { IMAGES } from "../Utils/Images";
 
-const ListRow = ({task_name,date,status,category,index,update}) => {
+const ListRow = ({task_name,date,status,category,index,update,deleteval}) => {
   const [showstatupop,setstatuspop]=useState(false)
+  const [showmorepop,setmorepop]=useState(false)
   const handleChange=(target,index)=>{
     update(index,target)
     setstatuspop(false)
+  }
+  const handleEdit=()=>{
+    setstatuspop(true)
+    setmorepop(false)
+  }
+  const handleDelete=(index)=>{
+    deleteval(index)
+    setmorepop(false)
   }
 
   return (
@@ -36,7 +45,12 @@ const ListRow = ({task_name,date,status,category,index,update}) => {
           </div>
           <td id="list-none">{category}</td>
 
-          <img src={IMAGES.More_Icon} alt=" More Icon" id="list-none" className="more-icon" />
+          <img src={IMAGES.More_Icon} onClick={()=>setmorepop(!showmorepop)} alt=" More Icon" id="list-none" className="more-icon" />
+          {showmorepop&&
+          <div className="more-popup" >
+            <div className="more-popup-row-1" onClick={handleEdit} > <img src={IMAGES.Edit_Icon} alt="" />Edit</div>
+            <div className="more-popup-row-2" onClick={()=>handleDelete(index)} > <img src={IMAGES.Delete_Icon} alt="" /> Delete</div>
+          </div>}
         </tr>
       </table>
     </div>

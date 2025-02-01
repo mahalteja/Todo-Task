@@ -1,19 +1,16 @@
-.create-task-popup-outer{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.50);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-
-
+.create-task-popup-outer {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
 }
 
 .create-task-popup {
-
   border-radius: 20px;
   background: #fff;
   padding: 24px 20px 0px 20px;
@@ -23,7 +20,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content:center ;
+  justify-content: center;
   gap: 16px;
   overflow: hidden;
 }
@@ -35,8 +32,8 @@
   padding-bottom: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-.c-t-pp-top img{
-    cursor: pointer;
+.c-t-pp-top img {
+  cursor: pointer;
 }
 .c-t-pp-top-head {
   color: #2f2f2f;
@@ -187,11 +184,37 @@
   border: 1px solid rgba(0, 0, 0, 0.19);
   background: #fff;
 }
+#radio-option-active {
+  display: flex;
+  padding: 10px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 41px;
+  
+  border: 1px solid rgba(0, 0, 0, 0.19);
+  background: #7B1984;
+}
 #radio-option input {
-  display: block;
+  display: none;
+  
+}
+#radio-option-active input {
+  display: none;
+  
 }
 #radio-option label {
   color: #090909;
+  text-align: center;
+  font-family: Mulish;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+  cursor: pointer;
+}
+#radio-option-active label{
+  color: #FFF;
   text-align: center;
   font-family: Mulish;
   font-size: 12px;
@@ -277,6 +300,25 @@
   font-style: normal;
   font-weight: 700;
   line-height: 140%;
+  cursor: not-allowed;
+}
+.btn-create-active {
+  display: inline-flex;
+  padding: 10px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 41px;
+
+  background: #7B1984;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-family: Mulish;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
   cursor: pointer;
 }
 
@@ -297,4 +339,37 @@
   font-weight: 700;
   line-height: 140%;
   cursor: pointer;
+}
+
+.task-cat-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.13);
+  background: rgba(241, 241, 241, 0.36);
+  height: 43px;
+  width: 100%;
+  color: #1e212a;
+  font-family: Mulish;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  cursor: pointer;
+}
+.file-input {
+  appearance: none;
+  display: none;
+}
+.file-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.preview-img {
+  max-width: 50px;
+  max-width: 50px;
 }

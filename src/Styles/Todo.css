@@ -63,6 +63,7 @@
   width: 100%;
   min-height: 330px;
   gap: 8px;
+  padding-bottom: 128px;
 }
 .add-task-text {
   color: rgba(0, 0, 0, 0.8);

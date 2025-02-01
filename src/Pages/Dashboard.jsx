@@ -4,50 +4,72 @@ import { IMAGES } from "../Utils/Images";
 import List from "../Components/List";
 import AddTaskPopUp from "../Components/AddTaskPopUp.jsx";
 import { Task_List } from "../Utils/constant.js";
+import Board from "../Components/Board.jsx";
 
 const Dashboard = ({ profile, callFunction }) => {
   function handleClick() {
     callFunction();
   }
 
-
   const [menu, setMenu] = useState(false);
 
-  const data = [...Task_List];
-  const [dup_data,setdupdata]=useState([...data])
+  const [dup_data, setdupdata] = useState([...Task_List]);
 
-  const [showpopup,setpopup]=useState(false)
+  const [showpopup, setpopup] = useState(false);
 
-
-
-
+  // For Adding Data
   const add_data = (adddata) => {
-    data.push(adddata)
-    setdupdata([...data])
-
+    Task_List.push(adddata);
+    setdupdata([...Task_List]);
+    console.log(Task_List)
+  };
+  //For Sorting in Ascending order
+  const handleSort = (value) => {
+    if (value === "Acend") {
+      setdupdata(
+        [...Task_List].sort((a, b) => {
+          return new Date(a.date) - new Date(b.date);
+        })
+      );
+    }
+    //For Sorting in Decending order
+    else if (value === "Decend") {
+      setdupdata(
+        [...Task_List].sort((a, b) => {
+          return new Date(b.date) - new Date(a.date);
+        })
+      );
+    }
+    //For Reseting the list
+    else {
+      setdupdata(Task_List);
+    }
   };
 
+  // For Filtering list
   const filterStatus = (cat) => {
-    if (cat!="category"){
-    setdupdata(data.filter((item) => item.category === cat))
-    }
-    else{
-      setdupdata(data)
+    if (cat !== "category") {
+      setdupdata(Task_List.filter((item) => item.category === cat));
+    } else {
+      setdupdata(Task_List);
     }
   };
 
-  const popupFun=()=>{
-    setpopup(!showpopup)
-  }
+  const popupFun = () => {
+    setpopup(!showpopup);
+  };
+  // For Updating The Status
+  const updateStatus = (index, value) => {
+    Task_List[index].status = value;
+    setdupdata([...Task_List]);
+  };
+  //For Deleting the element
+  const Deleteval = (index) => {
+    Task_List.splice(index, 1);
+    setdupdata([...Task_List]);
+  };
+  useEffect(() => {}, [dup_data]);
 
-  const updateStatus=(index,value)=>{
-    data[index].status=value;
-    setdupdata([...data])
-    console.log(data)
-    
-  }
-  
-  
   return (
     <div className="dashboard">
       <div className="dash-head">
@@ -94,7 +116,7 @@ const Dashboard = ({ profile, callFunction }) => {
         <div className="filter-left">
           <p className="filter-name">Filter by:</p>
           <div id="dropdown-1">
-            <select 
+            <select
               onChange={(e) => {
                 filterStatus(e.target.value);
               }}
@@ -105,10 +127,14 @@ const Dashboard = ({ profile, callFunction }) => {
             </select>
           </div>
           <div id="dropdown-1">
-            <select>
-              <option value="due">Due Date</option>
-              <option value="Work">work</option>
-              <option value="Personal">Personal</option>
+            <select
+              onChange={(e) => {
+                handleSort(e.target.value);
+              }}
+            >
+              <option value="Reset">Due Date</option>
+              <option value="Acend">Ascending</option>
+              <option value="Decend">Decending</option>
             </select>
           </div>
         </div>
@@ -117,12 +143,24 @@ const Dashboard = ({ profile, callFunction }) => {
             <img src={IMAGES.Search_Icon} alt="Search Icon" />
             <input type="search" placeholder="Search" />
           </div>
-          <button className="add-task" onClick={()=>setpopup(true)}>ADD TASK</button>
+          <button className="add-task" onClick={() => setpopup(true)}>
+            ADD TASK
+          </button>
         </div>
       </div>
 
-      {showpopup && <AddTaskPopUp callFun={add_data} popup={popupFun}  />}
-      <List callFun={add_data} data={dup_data} update={updateStatus}/>
+      {showpopup && <AddTaskPopUp callFun={add_data} popup={popupFun} />}
+      {!menu ? (
+        <List
+          callFun={add_data}
+          data={dup_data}
+          update={updateStatus}
+          deleteval={Deleteval}
+          sort={handleSort}
+        />
+      ) : (
+        <Board data={dup_data} deleteval={Deleteval}/>
+      )}
     </div>
   );
 };
